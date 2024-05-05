@@ -1,0 +1,25 @@
+body {
+    width: 100vw;
+    height: 100lvh;
+    background-color: #030637;
+}
+
+.gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    gap: 15px;
+}
+
+.gameboard div {
+    background-color: #3C0753;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.gameboard div:hover {
+    background-color: #6d0e96;
+}
