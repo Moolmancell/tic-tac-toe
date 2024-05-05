@@ -71,8 +71,10 @@ function game(player1, player2) {
                     console.log(mark + " wins");
                     score+=1;
                     again();
-                } else {
                     return;
+                } else if (!Gameboard.gameboard.includes(0)){
+                    console.log("tie")
+                    again();
                 }
         });
     };
