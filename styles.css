@@ -1,7 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap');
+
+.center {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #F3FFB9;
+}
+
+:root {
+    font-family: "Radio Canada Big", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
 body {
     width: 100vw;
-    height: 100lvh;
-    background-color: #030637;
+    height: 100vh;
+    position: relative;
+    background-color:#F3FFB9;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dim {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0, 0, 0);
+    z-index: 1;
+    opacity: 0.5;
 }
 
 .gameboard {
@@ -15,11 +47,95 @@ body {
 }
 
 .gameboard div {
-    background-color: #3C0753;
+    background-color: #561643;
     border-radius: 10px;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .gameboard div:hover {
     background-color: #6d0e96;
+}
+
+div.turn {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    font-size: 60px;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+.options label {
+    font-size: 20px;
+}
+
+.options input{
+    display: block;
+    appearance: none;
+    border: 5px #c42021 solid;
+    background-color: #6c0e23;
+    border-radius: 50px;
+    color: white;
+    font-size: 15px;
+    padding: 15px;
+    width: 400px;
+}
+
+.options .startButton, .gameover button {
+    appearance: none;
+    display: block;
+    margin: auto;
+    border: 4px #a1247c solid;
+    background-color: #3C1742;
+    color: white;
+    border-radius: 20px;
+    color: white;
+    font-size: 18px;
+    padding: 5px;
+    width: 200px;
+    margin-top: 20px;
+}
+
+.fade {
+    opacity: 0;
+}
+
+input#nameX {
+    margin-bottom: 20px;
+}
+
+.cell svg {
+    filter: invert(100%) sepia(16%) saturate(7457%) hue-rotate(247deg) brightness(138%) contrast(91%);
+    transform: scale(2.5); 
+}
+
+.gameover {
+    background-color: #F3FFB9;
+    z-index: 2;
+    border: 5px #c42021 solid;
+    border-radius: 20px;
+    padding: 20px;
+    width: 400px;
+}
+
+.gameover h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 40px;
+}
+
+.gameover .announcement {
+    text-align: center;
+    font-size: 20px;
 }
