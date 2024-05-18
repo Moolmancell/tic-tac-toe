@@ -8,27 +8,39 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div class="gameboard">
-        <div data-cellnum="0"></div>
-        <div data-cellnum="1"></div>
-        <div data-cellnum="2"></div>
-        <div data-cellnum="3"></div>
-        <div data-cellnum="4"></div>
-        <div data-cellnum="5"></div>
-        <div data-cellnum="6"></div>
-        <div data-cellnum="7"></div>
-        <div data-cellnum="8"></div>  
+    <div class="dim center hidden"></div>
+    <div class="gameboard hidden">
+        <div class="cell" data-cellnum="0"></div>
+        <div class="cell" data-cellnum="1"></div>
+        <div class="cell" data-cellnum="2"></div>
+        <div class="cell" data-cellnum="3"></div>
+        <div class="cell" data-cellnum="4"></div>
+        <div class="cell" data-cellnum="5"></div>
+        <div class="cell" data-cellnum="6"></div>
+        <div class="cell" data-cellnum="7"></div>
+        <div class="cell" data-cellnum="8"></div>  
     </div>
+    <div class="turn ">
+        <p></p>
+    </div>
+    <h1>Tic-Tac-Toe</h1>
     <div class="options">
         <label for="nameX">
             Player 1 (X): 
-            <input type="text" name="" id="nameX">
+            <input type="text" name="" id="nameX" placeholder="Enter Name">
         </label>
         <label for="name0">
             Player 2 (O):
-            <input type="text" name="" id="name0">
+            <input type="text" name="" id="name0" placeholder="Enter Name">
         </label>
         <button class="startButton">Start</button>
+    </div>
+    <div class="gameover center hidden">
+        <h2>Gameover</h2>
+        <p class="announcement">wins</p>
+        <p class="winner"></p>
+        <button class="mainMenu">Main Menu</button>
+        <button class="oneMoreRounds">One more round</button>
     </div>
 </body>
 </html>
