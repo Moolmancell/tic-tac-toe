@@ -19,7 +19,7 @@ const Gameboard = (() => {
     const player0Name = document.querySelector("#name0")
     const options = document.querySelector(".options")
     const title = document.querySelector("h1")
-    const turn = document.querySelector(".turn p")
+    const currentPlayer = document.querySelector(".turn p")
 
     const dim = document.querySelector(".dim");
     const gameover = document.querySelector(".gameover");
@@ -40,7 +40,7 @@ const Gameboard = (() => {
         player0Name,
         options,
         title,
-        turn,
+        turn: currentPlayer,
         dim,
         gameover,
         startButton
@@ -48,7 +48,7 @@ const Gameboard = (() => {
 })();
 
 function game(player1, player2) {
-    let turn = 1; // Move the turn variable outside turn function
+    let currentPlayer = 1; // Move the turn variable outside turn function
 
     function reset_menu() {
         document.querySelector(".gameover .mainMenu").removeEventListener("click",  generateMainMenu);
@@ -100,7 +100,7 @@ function game(player1, player2) {
             0,0,0
         ];
 
-        turn = 1;
+        currentPlayer = 1;
 
         Gameboard.gameboardCellsDOM.forEach(element => {
             element.innerHTML = "";
@@ -148,26 +148,26 @@ function game(player1, player2) {
     const place = (e) => {
         console.log(e.target)
         const position = +e.target.getAttribute("data-cellnum");
-        if (turn === 1) {
+        if (currentPlayer === 1) {
             if (Gameboard.gameboard[position] !== 0) {
                 console.log("Position Taken");
                 Gameboard.turn.textContent = `Taken`
             } else {
                 Gameboard.gameboard[position] = player1.symbol;
                 e.target.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" id="x"><g fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M13 1 1 13M1 1l12 12"></path></g></svg>'
-                turn = 2;
+                currentPlayer = 2;
                 Gameboard.turn.textContent = `Its ${player2.playerName}'s turn`
                 console.log(Gameboard.gameboard);
                 checkEndMatch(player1.symbol, player1.score, player1.playerName)
             }
-        } else if (turn === 2) {
+        } else if (currentPlayer === 2) {
             if (Gameboard.gameboard[position] !== 0) {
                 console.log("Position Taken");
                 Gameboard.turn.textContent = `Taken`
             } else {
                 Gameboard.gameboard[position] = player2.symbol;
                 e.target.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" id="circle"><path d="M16 4C9.372 4 4 9.372 4 16s5.372 12 12 12 12-5.372 12-12S22.628 4 16 4zm0 22c-5.514 0-10-4.486-10-10S10.486 6 16 6s10 4.486 10 10-4.486 10-10 10z"></path></svg>'
-                turn = 1;
+                currentPlayer = 1;
                 Gameboard.turn.textContent = `Its ${player1.playerName}'s turn`
                 console.log(Gameboard.gameboard);
                 checkEndMatch(player2.symbol, player2.score, player2.playerName)
